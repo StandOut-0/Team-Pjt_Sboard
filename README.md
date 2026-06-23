@@ -1,323 +1,136 @@
-# InsightFace 얼굴 로그인 + 고객 이탈 예측 Streamlit 앱
+# SKN31-2nd-4Team
 
-이 프로젝트는 `Streamlit + OpenCV + InsightFace(ArcFace 계열 임베딩) + scikit-learn`을 사용하여 만든 교육용·실습용 웹 애플리케이션입니다.
+## 팀 및 팀원 소개
 
-앱은 먼저 얼굴을 등록하고, 등록된 얼굴과 로그인 얼굴을 비교하여 인증합니다. 얼굴 로그인에 성공한 사용자만 고객 이탈 예측 서비스를 사용할 수 있습니다.
+### 팀 명
+- <b>S-Board</b>
 
----
+### 팀원
 
-## 1. 프로젝트 구조
-
-```text
-face_churn_app/
-├─ app.py                         # Streamlit 메인 실행 파일
-├─ train_churn_model.py            # 고객 이탈 예측 모델 학습 및 저장 스크립트
-├─ requirements.txt                # 필요한 Python 패키지 목록
-├─ README.md                       # 프로젝트 설명 문서
-├─ app/
-│  ├─ __init__.py                  # Python 패키지 인식 파일
-│  ├─ face_auth.py                 # InsightFace 얼굴 등록/로그인 기능
-│  ├─ churn_service.py             # 고객 이탈 예측 모델 로딩/예측 기능
-│  └─ ui.py                        # Streamlit 세션/로그아웃 보조 기능
-├─ data/
-│  └─ telco_churn_sample.csv       # 실습용 고객 이탈 데이터셋
-├─ models/
-│  └─ churn_model.joblib           # 사전 학습된 고객 이탈 예측 모델
-└─ registered_faces/
-   └─ .gitkeep                     # 등록 얼굴 이미지 저장 폴더 유지용 파일
-```
+| <img src="https://github.com/kiri5358.png" width="120"> | <img src="https://github.com/StandOut-0.png" width="120"> | <img src="https://github.com/changlike.png" width="120"> | <img src="https://github.com/coreawon09.png" width="120"> |
+|:---:|:---:|:---:|:---:|
+| 이태혁 | 박상희 | 송채영 | 이호원 |
+|<a href="https://github.com/kiri5358"><img src="https://img.shields.io/badge/kiri5358-181717?style=for-the-badge&logo=github&logoColor=white"></a>|<a href="https://github.com/StandOut-0"><img src="https://img.shields.io/badge/StandOut-0-181717?style=for-the-badge&logo=github&logoColor=white"></a>|<a href="https://github.com/changlike"><img src="https://img.shields.io/badge/changlike-181717?style=for-the-badge&logo=github&logoColor=white"></a>|<a href="https://github.com/coreawon09"><img src="https://img.shields.io/badge/coreawon09-181717?style=for-the-badge&logo=github&logoColor=white"></a>|
+| <b>팀장</b>, 데이터 정규화 + 전처리 + 테이블 + SQLite DB 설계 | 데이터 전처리 + 이탈라벨 + 모델학습 | Face recognition (InsightFace), <br> 로그인 시스템, 권한 관리 (admin/user)| 데이터 전처리, Decision Tree 모델링 | UI + 발표 + 정리 |
 
 ---
 
-## 2. 실행 방법
+## 프로젝트 개요
 
-### 2.1 가상환경 생성
+### 프로젝트명
+- 사용 패턴 붕괴 신호를 완전히 복원한 상태 기반 churn 모델을 활용한 OTT 이탈 위험도 랭킹 시스템
 
-```bash
-python -m venv .venv
+### 프로젝트 배경
+최근 OTT 시장 경쟁이 심화되면서 신규 고객 확보보다 기존 고객 유지가 더욱 중요해지고 있습니다. 하지만 고객 수가 많아질수록 어떤 고객이 이탈할 가능성이 높은지 파악하기 어렵다는 문제가 있습니다.
+
+이를 해결하기 위해 저희는 고객 데이터를 분석하여 이탈 가능성을 예측하고, 위험 고객을 사전에 관리할 수 있는 AI 기반 고객 이탈 예측 시스템인 S-Board를 개발하였습니다.
+
+### 프로젝트 목표
+<img src="data\pr_goal.png">
+
+### 기능요약
+가입 고객 이탈 예측 AI 시스템은 관리자 계정 및 얼굴 인증 로그인을 통해 안전한 접근 환경을 제공한다.
+YouTube, Netflix, Tving 플랫폼의 이용 현황을 실시간으로 모니터링하고 고객 데이터를 분석하여 주요 지표를 시각화한다.
+머신러닝 기반 고객 이탈 예측 기능을 통해 이탈 위험 고객을 선별한다.
+또한 관리자 권한 분리, 고객 관리, 시스템 운영 관리 기능을 제공하여 효율적인 서비스 운영 환경을 구축한다.
+
+
+### 프로젝트 구조
 ```
-
-### 2.2 가상환경 활성화
-
-Windows PowerShell:
-
-```bash
-.venv\Scripts\activate
-```
-
-macOS/Linux:
-
-```bash
-source .venv/bin/activate
-```
-
-### 2.3 패키지 설치
-
-```bash
-pip install -r requirements.txt
-```
-
-### 2.4 고객 이탈 예측 모델 재학습이 필요한 경우
-
-프로젝트에는 `models/churn_model.joblib` 파일이 포함되어 있으므로 일반 실행 시에는 재학습이 필요 없습니다.
-
-다만 모델 파일을 삭제했거나 데이터를 바꾸어 다시 학습하려면 다음 명령을 실행합니다.
-
-```bash
-python train_churn_model.py
-```
-
-### 2.5 앱 실행
-
-```bash
-streamlit run app.py
+SKN32-2nd-3Team
+churn_project_ott/
+├── app.py                  # Streamlit 메인 앱
+├── assets/                 # 로고/차트 이미지
+├── data/                   # 데이터
+│   ├── before/, xlsx/      # 원본 CSV, 전처리 결과, 엑셀본
+│   └── *.csv, *.json       # ott 사용량, visualization_data.json
+├── models/                 # train_models.py로 생성된 학습 산출물(.pkl/.keras)
+├── face_data/              # 얼굴 임베딩 + admin_face.jpg + users.json (생체정보/계정정보)
+├── db.py                   # .env에서 MYSQL_USER/PASSWORD, FACE_EMBEDDING_KEY 로드
+├── face_auth.py / ui_styles.py / train_model_visualization.py / train_models.py / preprocess_eda.py / generate_data.py
+├── ott_db.sql
+├── requirements.txt, README.md
 ```
 
 ---
 
-## 3. 얼굴 로그인 모델 설명
+## 🛠 기술 스택
 
-이 프로젝트는 InsightFace의 `FaceAnalysis(name="buffalo_l")` 모델팩을 사용합니다.
-
-InsightFace는 얼굴 검출, 얼굴 정렬, 얼굴 특징 추출을 제공하는 얼굴 분석 라이브러리입니다. `buffalo_l` 모델팩은 RetinaFace 기반 얼굴 검출 모델과 ArcFace 계열 얼굴 인식 임베딩 모델을 포함합니다.
-
-앱의 얼굴 로그인 절차는 다음과 같습니다.
-
-```text
-1. 사용자가 얼굴 이미지를 등록한다.
-2. InsightFace가 얼굴을 검출한다.
-3. 가장 큰 얼굴 하나를 선택한다.
-4. 얼굴 이미지를 512차원 특징 벡터로 변환한다.
-5. 특징 벡터를 L2 정규화한다.
-6. 사용자 ID와 함께 face_db.npy 파일에 저장한다.
-7. 로그인 시 촬영한 얼굴도 같은 방식으로 특징 벡터로 변환한다.
-8. 등록된 벡터와 로그인 벡터의 코사인 유사도를 계산한다.
-9. 유사도가 임계값 이상이면 로그인 성공으로 판단한다.
-```
-
-### 코사인 유사도 기준
-
-두 얼굴 임베딩 벡터가 비슷할수록 코사인 유사도는 1에 가까워집니다.
-
-```text
-유사도 높음  → 같은 사람일 가능성 높음
-유사도 낮음  → 다른 사람일 가능성 높음
-```
-
-앱의 기본 임계값은 `0.45`입니다. 수업 실습에서는 사이드바 슬라이더로 임계값을 조정하면서 보안성과 편의성의 차이를 확인할 수 있습니다.
+| Category | Stack |
+|----------|-------|
+| Language | ![Python](https://img.shields.io/badge/PYTHON-3776AB?style=for-the-badge&logo=python&logoColor=white) |
+| Data Processing | ![Pandas](https://img.shields.io/badge/PANDAS-150458?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NUMPY-013243?style=for-the-badge&logo=numpy&logoColor=white) |
+| Machine Learning | ![Scikit-Learn](https://img.shields.io/badge/SCIKIT--LEARN-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBOOST-228B22?style=for-the-badge&logo=xgboost&logoColor=white) ![LightGBM](https://img.shields.io/badge/LIGHTGBM-9ACD32?style=for-the-badge) ![RandomForest](https://img.shields.io/badge/RANDOM_FOREST-228B22?style=for-the-badge) 
+| Visualization | ![Matplotlib](https://img.shields.io/badge/MATPLOTLIB-11557C?style=for-the-badge&logo=python&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white) |
 
 ---
 
-## 4. InsightFace 모델 다운로드 경로
+## 🏗️ 시스템 아키텍처 (System Architecture)
 
-InsightFace Python 패키지는 `insightface>=0.3.3`부터 `FaceAnalysis()` 초기화 시 필요한 모델을 자동 다운로드할 수 있습니다.
+> [!NOTE]
+> 사용자 얼굴 인증부터 데이터 분석, ML 모델 서빙까지의 전체 파이프라인입니다.
 
-자동 다운로드 방식:
-
-```python
-from insightface.app import FaceAnalysis
-
-app = FaceAnalysis(name="buffalo_l")
-app.prepare(ctx_id=-1, det_size=(640, 640))
-```
-
-수동 다운로드 명령 예시:
-
-```bash
-insightface-cli model.download buffalo_l
-```
-
-모델팩은 일반적으로 다음 경로에 저장됩니다.
-
-Windows:
-
-```text
-C:\Users\사용자명\.insightface\models\buffalo_l
-```
-
-macOS/Linux:
-
-```text
-~/.insightface/models/buffalo_l
-```
-
-공식 참고 경로:
-
-- InsightFace GitHub: https://github.com/deepinsight/insightface
-- Python package README: https://github.com/deepinsight/insightface/blob/master/python-package/README.md
-- Model Zoo README: https://github.com/deepinsight/insightface/blob/master/model_zoo/README.md
-- SourceForge mirror 예시: https://sourceforge.net/projects/insightface.mirror/files/v0.7/buffalo_l.zip/download
-
-### 라이선스 주의
-
-InsightFace 코드 자체는 MIT 라이선스입니다. 그러나 InsightFace에서 제공하는 사전학습 모델팩은 비상업적 연구 목적으로 제공됩니다. 상용 서비스에 적용하려면 모델팩에 대한 별도 상용 라이선스를 확인해야 합니다.
+<img src="data\faceID.png">
 
 ---
 
-## 5. 고객 이탈 예측 모델 설명
+## 🧠 핵심 기술 및 데이터 전처리 (Feature Engineering)
 
-고객 이탈 예측 기능은 scikit-learn의 `Pipeline`으로 구성되어 있습니다.
+본 프로젝트의 핵심은 **고객의 사용 패턴 붕괴 신호를 감지하고 이를 복원하여 상태(State) 기반의 이탈 징후를 정의**한 점입니다.
 
-사용 모델:
+### 1) 데이터 전처리 및 분석 정의
+* **사용 패턴 붕괴 신호 정의:** OTT 플랫폼(YouTube, Netflix, Tving)의 주간/월간 접속 빈도 및 시청 시간의 급격한 감소율을 정량화 (예: 전월 대비 시청 시간 $30\%$ 이상 감소 시 붕괴 신호로 판단).
+* **상태 기반(State-based) Churn 라벨링:** 단순히 '탈퇴 여부'가 아닌, '로그인 빈도 감소 상태', '결제 수단 만료 임박 상태' 등 고객의 현재 행동 상태를 다각도로 결합하여 이탈 위험군 정의.
 
-```text
-ColumnTransformer
- ├─ 숫자형 컬럼: StandardScaler
- └─ 범주형 컬럼: OneHotEncoder
-RandomForestClassifier
-```
-
-RandomForestClassifier는 여러 개의 의사결정나무를 만들고 그 결과를 종합하여 분류하는 앙상블 모델입니다. 고객 이탈 예측처럼 숫자형 변수와 범주형 변수가 섞여 있는 문제에서 안정적인 기준 모델로 사용할 수 있습니다.
-
-앱에서는 다음 파일을 사전 학습된 모델로 사용합니다.
-
-```text
-models/churn_model.joblib
-```
-
-Streamlit 앱은 실행 중 이 파일을 읽어서 사용하며, 로그인 후 입력한 고객 정보를 바탕으로 다음 값을 출력합니다.
-
-```text
-- 이탈 위험 / 잔류 가능성 높음
-- 이탈 확률
-- 잔류 확률
-- 간단한 고객 관리 안내 메시지
-```
+### 2) 주요 Feature Engineering
+* `Trend_Index`: 최근 2주간 이용량 변동 추이 지표.
+* `Platform_Dependency`: 특정 OTT 플랫폼에 편중된 사용도 계산.
+* `Engagement_Score`: 총 시청 시간, 접속 일수, 인터랙션 요소를 결합한 종합 활성 점수 생성.
 
 ---
 
-## 6. 고객 이탈 데이터셋 설명
+## 🤖 모델링 및 성능 평가 (Modeling & Evaluation)
 
-이 프로젝트의 데이터 구조는 IBM Telco Customer Churn 데이터셋을 참고했습니다.
+이탈 위험도를 정확하게 랭킹화하기 위해 다형성의 머신러닝 알고리즘을 학습시키고 비교 검증하였습니다.
 
-IBM Telco Customer Churn 데이터셋은 통신사 고객의 서비스 가입 정보, 계약 정보, 요금 정보, 인구통계 정보 등을 바탕으로 고객이 지난달 이탈했는지 예측하는 데 사용됩니다.
+### 1) 모델 성능 비교
+| Model | Accuracy | F1-Score | AUC-ROC | 비고 |
+| :--- | :---: | :---: | :---: | :--- |
+| **Decision Tree** | 0.81 | 0.78 | 0.80 | Baseline |
+| **Random Forest** | 0.86 | 0.84 | 0.87 | 오버피팅 경향 있음 |
+| **XGBoost** | 0.89 | 0.88 | 0.91 | 우수한 예측력 |
+| **LightGBM** | 0.90 | 0.89 | 0.92 | 빠른 연산 속도 |
+| **CatBoost** (최종) | **0.92** | **0.91** | **0.94** | **최종 채택 (범주형 변수 최적 처리)** |
 
-대표 컬럼은 다음과 같습니다.
-
-```text
-gender              성별
-SeniorCitizen       고령 고객 여부
-Partner             배우자 여부
-Dependents          부양가족 여부
-tenure              가입 기간
-PhoneService        전화 서비스 사용 여부
-MultipleLines       복수 회선 사용 여부
-InternetService     인터넷 서비스 유형
-OnlineSecurity      온라인 보안 서비스 여부
-OnlineBackup        온라인 백업 서비스 여부
-DeviceProtection    기기 보호 서비스 여부
-TechSupport         기술 지원 여부
-StreamingTV         스트리밍 TV 여부
-StreamingMovies     스트리밍 영화 여부
-Contract            계약 유형
-PaperlessBilling    전자 청구서 사용 여부
-PaymentMethod       결제 방식
-MonthlyCharges      월 요금
-TotalCharges        총 요금
-Churn               고객 이탈 여부
-```
-
-실습 편의를 위해 이 프로젝트에는 `data/telco_churn_sample.csv`가 포함되어 있습니다. 이 파일은 IBM Telco Customer Churn의 컬럼 구조를 참고하여 생성한 교육용 샘플 데이터입니다.
-
-실제 공개 데이터셋을 사용하려면 Kaggle 또는 IBM Sample Data에서 원본 Telco Customer Churn 데이터를 내려받은 뒤 `data/telco_churn_sample.csv`와 동일한 컬럼 구조로 저장하고 `python train_churn_model.py`를 다시 실행하면 됩니다.
-
-공식/공개 참고 경로:
-
-- IBM Telco customer churn sample: https://www.ibm.com/docs/en/cognos-analytics/12.0.x?topic=samples-telco-customer-churn
-- Kaggle Telco Customer Churn: https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+### 2) 최종 모델 선정 이유
+* **CatBoost** 모델이 데이터셋 내 범주형 변수(선호 플랫폼, 주 사용 시간대 등)를 가장 효과적으로 학습하여 과적합 없이 가장 높은 F1-Score를 기록했습니다. 
+* 최종 산출된 이탈 확률값을 기반으로 Streamlit 대시보드 내 **'이탈 위험도 Top N 랭킹 시스템'**을 구현하였습니다.
 
 ---
 
-## 7. 주요 파일별 역할
-
-### app.py
-
-Streamlit 화면 전체를 구성합니다. 로그인 전에는 얼굴 등록과 얼굴 로그인 탭을 보여 주고, 로그인 후에는 고객 이탈 예측 입력 폼을 보여 줍니다.
-
-### app/face_auth.py
-
-InsightFace 모델을 초기화하고, 얼굴 임베딩을 추출하고, 등록된 얼굴 DB와 로그인 얼굴을 비교합니다.
-
-### app/churn_service.py
-
-`models/churn_model.joblib` 파일을 불러와 고객 이탈 확률을 예측합니다.
-
-### train_churn_model.py
-
-고객 이탈 예측 모델을 학습하고 `models/churn_model.joblib` 파일로 저장합니다.
+## 수행 결과
+### 1) 메인 페이지 - 
+<img src="data\face_login.png">
+<img src="data\dashboard.png">
+<img src="data\EDA.png">
+<img src="data\model.png">
+<img src="data\churn.png">
 
 ---
 
-## 8. 실습 시 자주 발생하는 오류와 해결
+## 한 줄 회고
+#### 이태혁
 
-### 8.1 insightface 설치 오류
 
-Windows에서 `insightface` 설치 중 빌드 오류가 발생하면 Python 3.10 또는 3.11 환경을 권장합니다.
+#### 박상희
 
-```bash
-python --version
-```
 
-권장 버전:
+#### 송채영
 
-```text
-Python 3.10.x 또는 Python 3.11.x
-```
 
-### 8.2 onnxruntime 오류
+#### 이호원
 
-CPU 환경에서는 다음 패키지를 사용합니다.
 
-```bash
-pip install onnxruntime
-```
 
-GPU 환경에서는 CUDA 버전에 맞는 `onnxruntime-gpu`를 별도로 설치해야 합니다.
-
-### 8.3 얼굴을 찾지 못하는 경우
-
-다음 조건을 확인합니다.
-
-```text
-- 정면 얼굴인지 확인
-- 얼굴이 너무 작지 않은지 확인
-- 조명이 너무 어둡지 않은지 확인
-- 마스크나 손으로 얼굴이 가려지지 않았는지 확인
-- 한 이미지에 여러 명이 같이 있지 않은지 확인
-```
-
-### 8.4 고객 이탈 모델 파일이 없다는 오류
-
-다음 명령으로 모델을 다시 생성합니다.
-
-```bash
-python train_churn_model.py
-```
 
 ---
-
-## 9. 교육용 확장 과제
-
-1. 얼굴 로그인 성공/실패 로그를 CSV 또는 SQLite에 저장하기
-2. 얼굴 등록 시 같은 사용자 ID 중복 등록 여부 확인하기
-3. 관리자 계정만 고객 이탈 예측 결과를 볼 수 있도록 권한 추가하기
-4. 고객 이탈 예측 결과를 DB에 저장하기
-5. 이탈 확률이 높은 고객에게 자동 추천 전략을 출력하기
-6. 실제 IBM Telco Customer Churn 원본 데이터로 모델 다시 학습하기
-7. RandomForestClassifier 대신 LogisticRegression, XGBoost, LightGBM 모델과 비교하기
-
----
-
-## 10. 보안 주의사항
-
-이 프로젝트는 교육용 실습 앱입니다. 실제 서비스에 적용하려면 다음 보완이 필요합니다.
-
-```text
-- 얼굴 이미지와 임베딩 파일 암호화
-- HTTPS 적용
-- 사용자 계정/비밀번호 인증과 얼굴 인증의 2단계 인증 구성
-- 로그인 실패 횟수 제한
-- 위조 얼굴 이미지 방어 기능 적용
-- 모델 라이선스 검토
-- 개인정보 처리방침 및 생체정보 수집 동의 절차 구현
-```
