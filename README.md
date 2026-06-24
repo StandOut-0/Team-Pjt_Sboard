@@ -1,38 +1,55 @@
-# SKN31-2nd-4Team
 
-## 팀 및 팀원 소개
 
-### 팀 명
-- <b>S-Board</b>
 
-### 팀원
+### S BOARD
+ - 로그인 및 페이스 인증
+[![영상1](https://img.youtube.com/vi/ySU7xG9bYps/0.jpg)](https://www.youtube.com/watch?v=ySU7xG9bYps)
+ - 데시보드
+[![영상2](https://img.youtube.com/vi/uxs9JuC-0DY/0.jpg)](https://www.youtube.com/watch?v=uxs9JuC-0DY)
 
-| <img src="https://github.com/kiri5358.png" width="120"> | <img src="https://github.com/StandOut-0.png" width="120"> | <img src="https://github.com/changlike.png" width="120"> | <img src="https://github.com/coreawon09.png" width="120"> |
-|:---:|:---:|:---:|:---:|
-| 이태혁 | 박상희 | 송채영 | 이호원 |
-|<a href="https://github.com/kiri5358"><img src="https://img.shields.io/badge/kiri5358-181717?style=for-the-badge&logo=github&logoColor=white"></a>|<a href="https://github.com/StandOut-0"><img src="https://img.shields.io/badge/StandOut-0-181717?style=for-the-badge&logo=github&logoColor=white"></a>|<a href="https://github.com/changlike"><img src="https://img.shields.io/badge/changlike-181717?style=for-the-badge&logo=github&logoColor=white"></a>|<a href="https://github.com/coreawon09"><img src="https://img.shields.io/badge/coreawon09-181717?style=for-the-badge&logo=github&logoColor=white"></a>|
-| <b>팀장</b>, 데이터 정규화 + 전처리 + 테이블 + SQLite DB 설계 | 데이터 전처리 + 이탈라벨 + 모델학습 | Face recognition (InsightFace), <br> 로그인 시스템, 권한 관리 (admin/user)| 데이터 전처리, Decision Tree 모델링 | UI + 발표 + 정리 |
 
----
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/e8295132-65db-4476-9ac2-54c3931a3d24" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/e7221b82-90b4-4dea-8e3f-f30eda92e139" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/f4891167-c477-432d-bc6c-c3bb9bbc050b" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/a5b52437-1bcf-4d73-9d43-1b0e341560af" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/0a3bbbea-0db1-46a2-8a8c-136557cf6bd6" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/911d86b7-8fa5-435d-abb6-b0897d828b76" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/dc539173-8ca8-40a0-86d2-74b3cb6b22a1" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/ff7e478a-035e-4e1b-91d1-753dcb4c8b5f" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/7ff15c4e-df66-4160-a65c-7c982c4b5082" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/d6f56f2e-e63e-4fcd-8397-8cc13ad24d8c" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/8e5a2276-f186-45a6-87f4-4327f94922d6" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/bbefb39f-31be-471a-90c2-2d0977ef2e5c" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/68c60666-5865-4442-ad5e-c0024578884e" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/d4ca9548-1ba2-4bc8-87b0-3dce66156743" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/ca81d5ea-0dd3-4647-8686-36c1c38d7e9c" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/70aedbd6-763d-4953-9057-c433091509b8" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/b375bbef-01c6-4800-b4cf-f2cab2312758" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/f7929b86-8522-4a34-92f1-c25bcafecf7d" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/22877a2e-34f3-488e-bedc-40c746a9684b" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/4a35cc79-924a-4506-9a3b-5bfe8040d414" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/a6721d2f-ba1b-48f1-9f05-28f46add4365" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/dd8ce1e6-fe23-41b0-b6ba-de4cda50d11b" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/c8a42564-0a32-440c-b3d5-61dfcfeec768" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/a2d4f22f-3e60-48c5-aece-be7f328aa63e" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/d826b5cd-00ef-42f2-b356-36c6439c4631" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/73fec7b2-0fec-4359-b4b3-c2179b5e5cb0" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/65a66034-f415-4772-a36f-1a88c19c4d33" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/0ebb549e-ec61-461f-af47-e2318a2b2d17" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/0b1a8d57-4370-42a7-b268-e5a03a09343c" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/aa4a184e-0192-467b-b3bd-1b2be28ecb34" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/549f5151-7d4a-4f16-a430-17cbf703fc96" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/257062c8-8420-4f0e-aea3-134df29c1285" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/c9bd242f-e7b1-4677-9f40-e4cf5b20eddf" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/37639dcc-fd78-434c-b916-90a4cfe82580" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/ab659b53-44f7-4493-9167-a347a45cbab8" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/4c27bec7-4ecd-437b-a557-ad365d9b2269" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/82ffabe7-f371-4a1d-a2c1-9440fbd0f829" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/a77e2fa6-7c27-451d-8ec2-2dab2a7fb991" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/2b5ff4bf-1f16-4c17-8913-102b9b9f37cd" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/1f539452-96a6-4b7a-a885-844806a25086" />
+<img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/7e14872e-639a-4f9a-aec7-b20cd50791b6" />
 
-## 프로젝트 개요
-
-### 프로젝트명
-- 사용 패턴 붕괴 신호를 완전히 복원한 상태 기반 churn 모델을 활용한 OTT 이탈 위험도 랭킹 시스템
-
-### 프로젝트 배경
-최근 OTT 시장 경쟁이 심화되면서 신규 고객 확보보다 기존 고객 유지가 더욱 중요해지고 있습니다. 하지만 고객 수가 많아질수록 어떤 고객이 이탈할 가능성이 높은지 파악하기 어렵다는 문제가 있습니다.
-
-이를 해결하기 위해 저희는 고객 데이터를 분석하여 이탈 가능성을 예측하고, 위험 고객을 사전에 관리할 수 있는 AI 기반 고객 이탈 예측 시스템인 S-Board를 개발하였습니다.
-
-### 프로젝트 목표
-<img src="data\pr_goal.png">
-
-### 기능요약
-가입 고객 이탈 예측 AI 시스템은 관리자 계정 및 얼굴 인증 로그인을 통해 안전한 접근 환경을 제공한다.
-YouTube, Netflix, Tving 플랫폼의 이용 현황을 실시간으로 모니터링하고 고객 데이터를 분석하여 주요 지표를 시각화한다.
-머신러닝 기반 고객 이탈 예측 기능을 통해 이탈 위험 고객을 선별한다.
-또한 관리자 권한 분리, 고객 관리, 시스템 운영 관리 기능을 제공하여 효율적인 서비스 운영 환경을 구축한다.
 
 
 ### 프로젝트 구조
@@ -52,85 +69,11 @@ churn_project_ott/
 ├── requirements.txt, README.md
 ```
 
----
-
-## 🛠 기술 스택
-
-| Category | Stack |
-|----------|-------|
-| Language | ![Python](https://img.shields.io/badge/PYTHON-3776AB?style=for-the-badge&logo=python&logoColor=white) |
-| Data Processing | ![Pandas](https://img.shields.io/badge/PANDAS-150458?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NUMPY-013243?style=for-the-badge&logo=numpy&logoColor=white) |
-| Machine Learning | ![Scikit-Learn](https://img.shields.io/badge/SCIKIT--LEARN-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white) ![XGBoost](https://img.shields.io/badge/XGBOOST-228B22?style=for-the-badge&logo=xgboost&logoColor=white) ![LightGBM](https://img.shields.io/badge/LIGHTGBM-9ACD32?style=for-the-badge) ![RandomForest](https://img.shields.io/badge/RANDOM_FOREST-228B22?style=for-the-badge) 
-| Visualization | ![Matplotlib](https://img.shields.io/badge/MATPLOTLIB-11557C?style=for-the-badge&logo=python&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white) |
-
----
-
 ## 🏗️ 시스템 아키텍처 (System Architecture)
 
 > [!NOTE]
 > 사용자 얼굴 인증부터 데이터 분석, ML 모델 서빙까지의 전체 파이프라인입니다.
 
 <img src="data\faceID.png">
-
----
-
-## 🧠 핵심 기술 및 데이터 전처리 (Feature Engineering)
-
-본 프로젝트의 핵심은 **고객의 사용 패턴 붕괴 신호를 감지하고 이를 복원하여 상태(State) 기반의 이탈 징후를 정의**한 점입니다.
-
-### 1) 데이터 전처리 및 분석 정의
-* **사용 패턴 붕괴 신호 정의:** OTT 플랫폼(YouTube, Netflix, Tving)의 주간/월간 접속 빈도 및 시청 시간의 급격한 감소율을 정량화 (예: 전월 대비 시청 시간 $30\%$ 이상 감소 시 붕괴 신호로 판단).
-* **상태 기반(State-based) Churn 라벨링:** 단순히 '탈퇴 여부'가 아닌, '로그인 빈도 감소 상태', '결제 수단 만료 임박 상태' 등 고객의 현재 행동 상태를 다각도로 결합하여 이탈 위험군 정의.
-
-### 2) 주요 Feature Engineering
-* `Trend_Index`: 최근 2주간 이용량 변동 추이 지표.
-* `Platform_Dependency`: 특정 OTT 플랫폼에 편중된 사용도 계산.
-* `Engagement_Score`: 총 시청 시간, 접속 일수, 인터랙션 요소를 결합한 종합 활성 점수 생성.
-
----
-
-## 🤖 모델링 및 성능 평가 (Modeling & Evaluation)
-
-이탈 위험도를 정확하게 랭킹화하기 위해 다형성의 머신러닝 알고리즘을 학습시키고 비교 검증하였습니다.
-
-### 1) 모델 성능 비교
-| Model | Accuracy | F1-Score | AUC-ROC | 비고 |
-| :--- | :---: | :---: | :---: | :--- |
-| **Decision Tree** | 0.81 | 0.78 | 0.80 | Baseline |
-| **Random Forest** | 0.86 | 0.84 | 0.87 | 오버피팅 경향 있음 |
-| **XGBoost** | 0.89 | 0.88 | 0.91 | 우수한 예측력 |
-| **LightGBM** | 0.90 | 0.89 | 0.92 | 빠른 연산 속도 |
-| **CatBoost** (최종) | **0.92** | **0.91** | **0.94** | **최종 채택 (범주형 변수 최적 처리)** |
-
-### 2) 최종 모델 선정 이유
-* **CatBoost** 모델이 데이터셋 내 범주형 변수(선호 플랫폼, 주 사용 시간대 등)를 가장 효과적으로 학습하여 과적합 없이 가장 높은 F1-Score를 기록했습니다. 
-* 최종 산출된 이탈 확률값을 기반으로 Streamlit 대시보드 내 **'이탈 위험도 Top N 랭킹 시스템'**을 구현하였습니다.
-
----
-
-## 수행 결과
-### 1) 메인 페이지 - 
-<img src="data\face_login.png">
-<img src="data\dashboard.png">
-<img src="data\EDA.png">
-<img src="data\model.png">
-<img src="data\churn.png">
-
----
-
-## 한 줄 회고
-#### 이태혁
-
-
-#### 박상희
-
-
-#### 송채영
-
-
-#### 이호원
-
-
-
 
 ---
