@@ -2,9 +2,13 @@
 
 
 ### S BOARD
- - 로그인 및 페이스 인증
+
+ - 로그인 및 페이스 인증 영상
+   
 [![영상1](https://img.youtube.com/vi/ySU7xG9bYps/0.jpg)](https://www.youtube.com/watch?v=ySU7xG9bYps)
- - 데시보드
+
+ - 데시보드 영상
+   
 [![영상2](https://img.youtube.com/vi/uxs9JuC-0DY/0.jpg)](https://www.youtube.com/watch?v=uxs9JuC-0DY)
 
 
@@ -49,6 +53,7 @@
 <img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/2b5ff4bf-1f16-4c17-8913-102b9b9f37cd" />
 <img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/1f539452-96a6-4b7a-a885-844806a25086" />
 <img width="1186" height="659" alt="image" src="https://github.com/user-attachments/assets/7e14872e-639a-4f9a-aec7-b20cd50791b6" />
+<img width="1188" height="663" alt="image" src="https://github.com/user-attachments/assets/1b108b5c-7ef9-478e-917b-d8472c76f405" />
 
 
 
